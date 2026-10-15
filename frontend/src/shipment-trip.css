@@ -1,0 +1,135 @@
+.trip-overview {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 1px;
+  margin-bottom: 16px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--line);
+}
+
+.trip-overview > div {
+  min-width: 0;
+  display: grid;
+  gap: 7px;
+  padding: 15px;
+  background: white;
+}
+
+.trip-overview span {
+  color: var(--muted);
+  font-size: 9px;
+}
+
+.trip-overview b {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  overflow: hidden;
+  color: var(--ink);
+  font: 700 10px Manrope;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.trip-quantity-summary {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-top: 15px;
+}
+
+.trip-quantity-summary span {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 6px;
+  padding: 9px 11px;
+  background: #f1f7f5;
+  color: var(--muted);
+  font-size: 9px;
+}
+
+.trip-quantity-summary b {
+  color: var(--teal);
+  font: 800 12px Manrope;
+}
+
+.trip-transactions {
+  grid-column: 1 / -1;
+  padding: 0;
+  overflow: hidden;
+}
+
+.trip-transactions-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 20px;
+}
+
+.trip-transactions-head h3,
+.trip-transactions-head p {
+  margin: 0;
+}
+
+.trip-transactions-head > span {
+  border-radius: 15px;
+  padding: 5px 9px;
+  background: #e8f5f1;
+  color: var(--teal);
+  font: 700 9px Manrope;
+}
+
+.trip-transactions .table-wrap {
+  border: 0;
+  border-top: 1px solid var(--line);
+  border-radius: 0;
+}
+
+.trip-transactions table {
+  min-width: 900px;
+}
+
+.trip-transactions code {
+  color: #476c61;
+  font-size: 8px;
+}
+
+.delivery-closeout,
+.pod-card { display:grid; grid-template-columns:1.35fr .65fr; gap:12px; margin-top:18px; border-top:1px solid var(--line); padding-top:18px; }
+.delivery-closeout > form,
+.pod-card { border:1px solid var(--line); border-radius:9px; padding:16px; background:#f8fbfa; }
+.delivery-closeout h3,.delivery-closeout p,.pod-card h3,.pod-card p { margin:0 0 10px; }
+.delivery-closeout .failure-form { border-color:#edcbc8; background:#fff8f7; }
+.pin-check { display:flex !important; grid-template-columns:none !important; align-items:center; gap:8px !important; }
+.pin-check input { width:auto; }
+.delivery-attempts { margin-top:16px; border-top:1px solid var(--line); padding-top:13px; }
+.delivery-attempts > div { display:grid; grid-template-columns:130px 1fr auto; gap:10px; padding:8px 0; border-bottom:1px solid var(--line); font-size:9px; }
+.delivery-attempts small,.pod-card small { color:var(--muted); }
+.pod-card dl { display:grid; grid-template-columns:75px 1fr; gap:8px; font-size:10px; }
+.pod-card dd { display:grid; margin:0; font-weight:700; }
+.pod-card form { display:grid; align-content:start; gap:8px; }
+.pod-card form label { display:grid; gap:4px; font-size:9px; }
+.pod-evidence { display:flex; gap:8px; }
+.pod-evidence a { color:var(--teal); font-size:9px; font-weight:700; }
+
+@media (max-width: 1000px) {
+  .trip-overview {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .delivery-closeout,
+  .pod-card { grid-template-columns:1fr; }
+}
+
+@media (max-width: 560px) {
+  .trip-overview {
+    grid-template-columns: 1fr;
+  }
+
+  .trip-quantity-summary {
+    grid-template-columns: 1fr;
+  }
+}

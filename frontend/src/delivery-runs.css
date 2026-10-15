@@ -1,0 +1,14 @@
+.run-filters { display:grid; grid-template-columns:1fr 210px; gap:10px; }
+.run-filters .searchbar { margin:0; }
+.run-filters > select { border:1px solid var(--line); border-radius:9px; padding:0 12px; background:white; color:var(--ink); }
+.run-list { display:grid; gap:10px; margin-top:14px; }
+.run-list > a { display:grid; grid-template-columns:auto minmax(200px,1fr) auto auto minmax(150px,.6fr) auto; align-items:center; gap:16px; border:1px solid var(--line); border-left:4px solid var(--teal); border-radius:10px; padding:15px 17px; background:white; color:var(--ink); text-decoration:none; transition:.15s; }
+.run-list > a:hover { transform:translateX(2px); box-shadow:0 7px 20px #133d3212; }
+.run-list-truck { display:grid; place-items:center; width:45px; height:42px; border-radius:8px; background:#e8f5f1; color:var(--teal); }
+.run-list h3 { margin:3px 0; font:700 12px Manrope; }
+.run-list p,.run-list small { margin:0; color:var(--muted); font-size:8px; }
+.run-list-load { display:grid; grid-template-columns:auto auto; gap:1px 5px; align-items:baseline; }
+.run-list-load b { font:800 14px Manrope; }
+.run-list-load small { font:700 6px Manrope; }
+.run-list-time { display:grid; gap:4px; }
+@media(max-width:900px){.run-list>a{grid-template-columns:auto 1fr auto}.run-list-load,.run-list-time{grid-column:2/-1}.run-filters{grid-template-columns:1fr}}

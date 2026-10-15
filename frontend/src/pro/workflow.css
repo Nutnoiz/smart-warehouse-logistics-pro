@@ -1,0 +1,180 @@
+.hu-action-dialog {
+  width: min(700px, 94vw);
+  max-height: 90vh;
+  overflow: auto;
+  background: white;
+  border-radius: 20px;
+  padding: 28px;
+  box-shadow: 0 24px 80px #15213b33;
+}
+.hu-action-dialog label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 13px;
+  margin: 12px 0;
+}
+.hu-action-dialog input,
+.hu-action-dialog select {
+  width: 100%;
+  padding: 11px;
+  border: 1px solid #dce2ed;
+  border-radius: 9px;
+  background: #fff;
+  color: #172b4d;
+  box-sizing: border-box;
+}
+.hu-summary {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  background: #f5f7fc;
+  border-radius: 14px;
+  padding: 20px;
+  margin: 18px 0;
+}
+.hu-summary > svg {
+  color: #7366dc;
+}
+.hu-summary h3 {
+  margin: 0 0 6px;
+}
+.hu-summary small,
+.hu-summary b {
+  display: block;
+  margin: 5px 0;
+}
+.hu-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 20px 0;
+}
+.hu-actions .active {
+  background: #eeebff;
+  border-color: #9d8ee9;
+}
+.hu-destination {
+  background: #f1f5fa;
+  padding: 12px;
+  border-radius: 9px;
+  font-size: 13px;
+}
+.hu-commitment {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: space-between;
+  font-size: 13px;
+  background: #fff8e8;
+  padding: 14px;
+  border-radius: 10px;
+}
+.hu-cancel {
+  border-top: 1px solid #e8eaf0;
+  margin-top: 24px;
+  padding-top: 14px;
+  font-size: 12px;
+  color: #7c6870;
+}
+button.scene-cargo {
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  font-family: inherit;
+}
+button.station-detail-item {
+  width: 100%;
+  background: white;
+  border: 1px solid #e3e7f0;
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+}
+.return-workflow-item {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  background: #fff;
+  border: 1px solid #e4e8ef;
+  border-radius: 10px;
+  padding: 12px;
+  color: #263758;
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+}
+.return-workflow-item small {
+  display: block;
+}
+.hu-action-dialog .form-grid {
+  grid-template-columns: 1fr 1fr;
+}
+.hu-action-dialog h4 {
+  margin: 18px 0 10px;
+}
+@media (max-width: 600px) {
+  .hu-action-dialog {
+    padding: 18px;
+  }
+  .hu-actions > button {
+    width: 100%;
+  }
+  .hu-summary {
+    padding: 14px;
+  }
+  .hu-summary small {
+    overflow-wrap: anywhere;
+  }
+}
+.flow-station-heading {
+  width: 100%;
+  border: 0;
+  padding: 0;
+  background: none;
+  text-align: left;
+  font-family: inherit;
+  cursor: pointer;
+  color: inherit;
+}
+.flow-station-heading > div {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+.flow-station-heading > div > span {
+  margin-left: auto;
+  font-size: 9px;
+  color: #8d96a8;
+}
+.flow-station-heading > small {
+  font-size: 9px;
+  color: #8d96a8;
+}
+.station-cargo-preview > .card-hu-action {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  width: 100%;
+  padding: 7px;
+  border: 1px solid #e8eaf1;
+  background: #f8f9fc;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 9px;
+  color: #455473;
+  text-align: left;
+  font-family: inherit;
+}
+.card-hu-action > b {
+  margin-left: auto;
+}
+.card-hu-action:hover {
+  border-color: var(--flow);
+}
+.flow-station-heading:focus-visible,
+.card-hu-action:focus-visible,
+.scene-cargo:focus-visible {
+  outline: 2px solid #8572df;
+  outline-offset: 3px;
+}

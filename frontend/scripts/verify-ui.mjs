@@ -1,0 +1,45 @@
+import {chromium,expect} from '@playwright/test'
+import {mkdir} from 'node:fs/promises'
+
+const browser=await chromium.launch({channel:'msedge',headless:true})
+const context=await browser.newContext({viewport:{width:1440,height:1000}})
+const page=await context.newPage()
+const errors=[]
+page.on('pageerror',e=>errors.push(e.message))
+const output=new URL('../../docs/images/',import.meta.url)
+await mkdir(output,{recursive:true})
+try{
+  await page.goto('http://127.0.0.1:5180/')
+  await expect(page.getByRole('heading',{name:'เข้าสู่พื้นที่ทำงาน'})).toBeVisible()
+  await page.screenshot({path:new URL('pro-login.png',output).pathname.replace(/^\/(\w:)/,'$1'),fullPage:true})
+  await page.getByLabel('ชื่อผู้ใช้',{exact:true}).fill('admin')
+  await page.getByLabel('รหัสผ่าน',{exact:true}).fill('0000')
+  await page.getByRole('button',{name:'เข้าสู่ระบบ',exact:true}).click()
+  await expect(page.getByRole('heading',{name:'ภาพรวมปฏิบัติการ'})).toBeVisible()
+  await expect(page.getByText('เชื่อมต่อข้อมูลปฏิบัติงาน',{exact:true})).toBeVisible()
+  await page.screenshot({path:new URL('pro-dashboard.png',output).pathname.replace(/^\/(\w:)/,'$1'),fullPage:true})
+  await page.keyboard.press('Control+k')
+  await expect(page.getByRole('dialog',{name:'ค้นหาสินค้า'})).toBeVisible()
+  await page.keyboard.press('Escape')
+  for(const route of ['/tasks','/transfer','/counts','/reports','/users','/settings','/warehouse-map','/racks','/stations','/loading-docks','/master-data','/inventory','/inbound','/shipments','/delivery-runs','/driver','/audit']){
+    await page.goto(`http://127.0.0.1:5180${route}`)
+    await expect(page.locator('.pro-content')).toBeVisible()
+    await expect(page.locator('.pro-content h2').first()).toBeVisible()
+    await page.waitForTimeout(400)
+    await expect(page.locator('.pro-content .error:visible')).toHaveCount(0)
+    console.log(`PASS route ${route}`)
+  }
+  await page.goto('http://127.0.0.1:5180/inventory?q=BEARING')
+  await expect(page.locator('.inventory-page .searchbar input')).toHaveValue('BEARING')
+  await page.setViewportSize({width:390,height:844})
+  await page.goto('http://127.0.0.1:5180/dashboard')
+  await expect(page.getByRole('heading',{name:'ภาพรวมปฏิบัติการ'})).toBeVisible()
+  await expect(page.getByText('เชื่อมต่อข้อมูลปฏิบัติงาน',{exact:true})).toBeVisible()
+  const overflow=await page.evaluate(()=>document.documentElement.scrollWidth>window.innerWidth)
+  if(overflow)throw new Error('Mobile viewport has horizontal page overflow')
+  await page.screenshot({path:new URL('pro-mobile.png',output).pathname.replace(/^\/(\w:)/,'$1'),fullPage:true})
+  await page.getByRole('button',{name:'เปิดเมนู'}).click()
+  await expect(page.locator('.pro-sidebar.is-open')).toBeVisible()
+  if(errors.length)throw new Error(errors.join('\n'))
+  console.log('PASS login, dashboard data, command search, 17 routes, inventory deep link, mobile viewport and navigation. No browser page errors.')
+}finally{await browser.close()}

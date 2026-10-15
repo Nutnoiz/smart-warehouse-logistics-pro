@@ -1,0 +1,34 @@
+.inbound-product-picker {
+  margin-bottom: 16px;
+}
+.inbound-product-picker .table-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 10px 0;
+}
+.inbound-create-dialog label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 12px;
+  margin: 14px 0;
+  color: #40516c;
+}
+.inbound-create-dialog input,
+.inbound-create-dialog select {
+  padding: 11px;
+  border: 1px solid #dce2ed;
+  border-radius: 8px;
+  background: #fff;
+  color: #263752;
+  width: 100%;
+  box-sizing: border-box;
+}
+.inbound-create-dialog .panel-heading h3 {
+  margin: 0;
+}
+.inbound-create-dialog .helper {
+  font-size: 12px;
+  line-height: 1.8;
+}

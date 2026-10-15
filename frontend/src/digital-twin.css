@@ -1,0 +1,705 @@
+.flow-caption {
+  min-width: 880px;
+  gap: 42px;
+}
+
+.factory-flow {
+  min-width: 880px;
+  grid-template-columns: minmax(0, 1.1fr) 34px minmax(0, .8fr) 34px minmax(0, 1.05fr) 34px minmax(0, 1.05fr) 34px minmax(145px, 1.4fr);
+  gap: 5px;
+}
+
+.factory-flow > *,
+.conveyor-stage,
+.storage-machine,
+.truck-stage {
+  min-width: 0;
+}
+
+.station-machine > header {
+  grid-template-columns: auto minmax(0, 1fr) auto;
+}
+
+.station-machine header b,
+.station-machine header small,
+.stage-title span,
+.stage-title b,
+.truck-shape b {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.return-flow {
+  min-width: 880px;
+  grid-template-columns: 1fr minmax(200px, .28fr);
+}
+
+.truck-stage {
+  align-content: start;
+}
+
+.truck-stage .stage-title {
+  width: 100%;
+}
+
+.truck-stage .dock-door {
+  height: 112px;
+  align-items: stretch;
+  padding: 0;
+}
+
+.truck-cargo {
+  position: absolute;
+  inset: 23px 5px 7px;
+  z-index: 2;
+  display: flex;
+  align-content: flex-start;
+  gap: 3px;
+  flex-wrap: wrap;
+  overflow: auto;
+}
+
+.truck-cargo > em {
+  margin: auto;
+  color: #6e8780;
+  font: 700 5px Manrope;
+  font-style: normal;
+  text-align: center;
+}
+
+.truck-cargo-box {
+  width: 45px;
+  min-height: 38px;
+  padding: 3px;
+  border: 1px solid #a87938;
+  border-radius: 2px;
+  background: linear-gradient(135deg, #dba85f, #a66d27);
+  color: #24180c;
+  box-shadow: 0 3px 5px #0007;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1px 2px;
+}
+
+.truck-cargo-box svg {
+  width: 9px;
+}
+
+.truck-cargo-box b,
+.truck-cargo-box small,
+.truck-cargo-box strong {
+  overflow: hidden;
+  font: 800 5px Manrope;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.truck-cargo-box small,
+.truck-cargo-box strong {
+  grid-column: 1 / -1;
+}
+
+.dispatch-trucks {
+  display: grid;
+  gap: 8px;
+  max-height: 95px;
+  overflow-y: auto;
+}
+
+.dispatch-trucks .truck-shape {
+  padding: 7px;
+}
+
+.dispatch-trucks .truck-shape em {
+  color: #5b756d;
+  font: 700 5px Manrope;
+  font-style: normal;
+}
+
+.twin-legend .dispatch {
+  background: #c68a3d;
+}
+
+.twin-legend .yard {
+  background: #8d70d5;
+}
+
+.vehicle-control-stage {
+  display: flex;
+  flex-direction: column;
+  align-content: initial;
+  gap: 7px;
+}
+
+.vehicle-control-stage > .stage-title {
+  flex: 0 0 auto;
+  margin-bottom: 0;
+}
+
+.vehicle-lane {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid #445e56;
+  border-radius: 6px;
+  background: #101f1a;
+}
+
+.vehicle-lane.yard {
+  border-left: 3px solid #8d70d5;
+}
+
+.vehicle-lane.route {
+  border-left: 3px solid #c68a3d;
+}
+
+.vehicle-lane-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5px;
+  padding: 6px;
+  background: linear-gradient(90deg, #2b443d, #20342e);
+}
+
+.vehicle-lane-head > span {
+  min-width: 0;
+  color: #edf7f4;
+  font: 800 7px Manrope;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.vehicle-lane-head small {
+  display: block;
+  margin-top: 1px;
+  color: #77968c;
+  font: 700 5px Manrope;
+  letter-spacing: .7px;
+}
+
+.vehicle-lane-head > b {
+  flex: 0 0 auto;
+  border-radius: 8px;
+  padding: 2px 5px;
+  background: #142720;
+  color: #a9c9bf;
+  font: 800 6px Manrope;
+}
+
+.vehicle-cards {
+  display: grid;
+  gap: 4px;
+  max-height: 105px;
+  padding: 4px;
+  overflow-y: auto;
+}
+
+.vehicle-card {
+  min-width: 0;
+  overflow: hidden;
+  border-radius: 4px;
+  background: #e9eeec;
+  color: #14221e;
+  text-decoration: none;
+  box-shadow: 0 3px 0 #687a74;
+  transition: transform .15s, box-shadow .15s;
+}
+
+.vehicle-card:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 0 #687a74, 0 0 0 1px #9f8be0;
+}
+
+.vehicle-card-main {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 5px;
+  padding: 5px;
+}
+
+.vehicle-icon {
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+
+.vehicle-icon i {
+  position: absolute;
+  right: -1px;
+  bottom: -1px;
+  width: 5px;
+  height: 5px;
+  border: 1px solid white;
+  border-radius: 50%;
+  background: #8d70d5;
+  box-shadow: 0 0 4px #8d70d5;
+}
+
+.route .vehicle-icon i {
+  background: #d49646;
+  box-shadow: 0 0 4px #d49646;
+  animation: twinPulse 1.5s infinite;
+}
+
+.vehicle-card-main > div {
+  min-width: 0;
+  display: grid;
+}
+
+.vehicle-card-main b,
+.vehicle-card-main small,
+.vehicle-card-main em {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.vehicle-card-main b {
+  font: 800 7px Manrope;
+}
+
+.vehicle-card-main small {
+  color: #497064;
+  font: 700 5px Manrope;
+}
+
+.vehicle-card-main em {
+  color: #71847e;
+  font: 700 4px Manrope;
+  font-style: normal;
+}
+
+.vehicle-card-main > strong {
+  display: flex;
+  align-items: center;
+  color: #38675a;
+  font: 800 6px Manrope;
+}
+
+.vehicle-cargo-list {
+  display: flex;
+  gap: 3px;
+  padding: 0 5px 5px;
+  overflow-x: auto;
+}
+
+.vehicle-cargo-list > span {
+  flex: 0 0 53px;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 1px 2px;
+  border: 1px solid #a87938;
+  border-radius: 3px;
+  padding: 3px;
+  background: linear-gradient(135deg, #dba85f, #a66d27);
+  color: #24180c;
+}
+
+.vehicle-cargo-list b,
+.vehicle-cargo-list small {
+  overflow: hidden;
+  font: 800 5px Manrope;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.vehicle-cargo-list small {
+  grid-column: 1 / -1;
+}
+
+.vehicle-empty {
+  min-height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  color: #59766d;
+  font: 700 6px Manrope;
+}
+
+.vehicle-card-hint {
+  display: block;
+  padding: 2px 5px 4px;
+  color: #667d76;
+  font: 700 4px Manrope;
+  text-align: right;
+}
+
+.return-strip {
+  position: relative;
+  z-index: 1;
+  min-width: 880px;
+  display: grid;
+  grid-template-columns: 250px minmax(0, 1fr);
+  gap: 9px;
+  align-items: stretch;
+  margin-top: 11px;
+  padding-top: 11px;
+  border-top: 1px dashed #435d55;
+}
+
+.return-strip-title {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid #684b48;
+  border-radius: 7px;
+  padding: 8px 10px;
+  background: linear-gradient(120deg, #2d2422, #211d1b);
+}
+
+.return-strip-title > span {
+  color: #df716b;
+  font: 800 21px Manrope;
+}
+
+.return-strip-title > div {
+  min-width: 0;
+  display: grid;
+}
+
+.return-strip-title b {
+  color: #d89a95;
+  font: 800 7px Manrope;
+  letter-spacing: 1px;
+}
+
+.return-strip-title small {
+  overflow: hidden;
+  color: #8f7671;
+  font: 600 5px Manrope;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.return-strip-title strong {
+  border-radius: 10px;
+  padding: 3px 6px;
+  background: #402d2a;
+  color: #f0b2ad;
+  font: 800 7px Manrope;
+  white-space: nowrap;
+}
+
+.return-strip.clear .return-strip-title {
+  opacity: .72;
+}
+
+.return-strip-stations {
+  display: flex;
+  gap: 7px;
+  overflow-x: auto;
+}
+
+.return-strip-stations > article {
+  min-width: 230px;
+  flex: 1 0 230px;
+  display: grid;
+  grid-template-columns: 155px minmax(0, 1fr);
+  overflow: hidden;
+  border: 1px solid #465c55;
+  border-left: 3px solid #df716b;
+  border-radius: 7px;
+  background: #101f1a;
+}
+
+.return-strip-stations > article > header {
+  height: auto;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 6px;
+  border: 0;
+  padding: 8px;
+  background: linear-gradient(90deg, #31433e, #263833);
+}
+
+.return-strip-stations header i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #df716b;
+  box-shadow: 0 0 6px #df716b;
+}
+
+.return-strip-stations header div {
+  min-width: 0;
+  display: grid;
+}
+
+.return-strip-stations header b,
+.return-strip-stations header small {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.return-strip-stations header b {
+  color: white;
+  font: 700 6px Manrope;
+}
+
+.return-strip-stations header small {
+  color: #8ca69e;
+  font: 600 5px Manrope;
+}
+
+.return-strip-stations header strong {
+  color: #bdcec9;
+  font: 700 6px Manrope;
+}
+
+.return-strip-stations article > div {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 5px;
+  overflow-x: auto;
+}
+
+.return-strip-stations article > div > span,
+.return-strip-stations article > div > a {
+  flex: 0 0 78px;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 2px;
+  border: 1px solid #a86159;
+  border-radius: 4px;
+  padding: 5px;
+  background: linear-gradient(135deg, #d99068, #9c5434);
+  color: #251411;
+  text-decoration: none;
+}
+
+.return-strip-stations article > div > span b,
+.return-strip-stations article > div > span small,
+.return-strip-stations article > div > a b,
+.return-strip-stations article > div > a small {
+  overflow: hidden;
+  font: 800 5px Manrope;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.return-strip-stations article > div > span small,
+.return-strip-stations article > div > a small {
+  grid-column: 1 / -1;
+}
+
+.return-strip-stations article > div > a:hover {
+  border-color: #ffb2a8;
+  box-shadow: 0 0 0 1px #df716b;
+}
+
+.return-strip-stations em {
+  margin: auto;
+  color: #547168;
+  font: 700 6px Manrope;
+  font-style: normal;
+}
+
+.delivery-return-zone {
+  position: relative;
+  z-index: 1;
+  min-width: 880px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 275px;
+  gap: 9px;
+  align-items: stretch;
+  margin-top: 11px;
+  padding-top: 11px;
+  border-top: 1px dashed #435d55;
+}
+
+.route-fleet {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid #5c543e;
+  border-left: 3px solid #c68a3d;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #201e18, #17231f);
+}
+
+.route-fleet-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 8px 10px;
+  background: linear-gradient(90deg, #3e392a, #28352f);
+}
+
+.route-fleet-head > span {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: auto auto;
+  align-items: center;
+  gap: 0 7px;
+}
+
+.route-fleet-head svg {
+  grid-row: 1 / 3;
+  color: #e1a85d;
+}
+
+.route-fleet-head b {
+  color: white;
+  font: 800 8px Manrope;
+}
+
+.route-fleet-head small {
+  color: #9b8b6c;
+  font: 700 5px Manrope;
+  letter-spacing: .8px;
+}
+
+.route-fleet-head > strong {
+  border-radius: 12px;
+  padding: 3px 7px;
+  background: #55462d;
+  color: #f0c687;
+  font: 800 7px Manrope;
+  white-space: nowrap;
+}
+
+.route-fleet-cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(145px, 1fr));
+  gap: 6px;
+  max-height: 132px;
+  padding: 7px;
+  overflow-y: auto;
+}
+
+.route-fleet-cards > a {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid #596a64;
+  border-radius: 6px;
+  padding: 7px;
+  background: #e9eeec;
+  color: #14221e;
+  text-decoration: none;
+  box-shadow: 0 3px 0 #5a6863;
+  transition: .15s;
+}
+
+.route-fleet-cards > a:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 0 #5a6863, 0 0 0 1px #c68a3d;
+}
+
+.route-truck-icon {
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+
+.route-truck-icon i {
+  position: absolute;
+  right: -1px;
+  bottom: -1px;
+  width: 6px;
+  height: 6px;
+  border: 1px solid white;
+  border-radius: 50%;
+  background: #d49646;
+  box-shadow: 0 0 5px #d49646;
+  animation: twinPulse 1.5s infinite;
+}
+
+.route-fleet-cards > a > div:nth-child(2) {
+  min-width: 0;
+  display: grid;
+}
+
+.route-fleet-cards b,
+.route-fleet-cards small,
+.route-fleet-cards em {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.route-fleet-cards b {
+  font: 800 7px Manrope;
+}
+
+.route-fleet-cards small {
+  color: #497064;
+  font: 700 5px Manrope;
+}
+
+.route-fleet-cards em {
+  color: #71847e;
+  font: 700 5px Manrope;
+  font-style: normal;
+}
+
+.route-cargo-preview {
+  display: flex;
+  gap: 2px;
+}
+
+.route-cargo-preview i {
+  display: grid;
+  place-items: center;
+  width: 15px;
+  height: 15px;
+  border: 1px solid #a87938;
+  border-radius: 2px;
+  background: #dba85f;
+  color: #5a3917;
+}
+
+.route-cargo-preview small {
+  display: grid;
+  place-items: center;
+  color: #76501d;
+  font-size: 5px;
+}
+
+.route-fleet-empty {
+  grid-column: 1 / -1;
+  min-height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  color: #6f827b;
+  font: 700 7px Manrope;
+}
+
+.delivery-return-zone > .return-strip {
+  min-width: 0;
+  grid-template-columns: 1fr;
+  gap: 5px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.delivery-return-zone .return-strip-title {
+  padding: 6px 8px;
+}
+
+.delivery-return-zone .return-strip-stations > article {
+  min-width: 0;
+  grid-template-columns: 135px minmax(0, 1fr);
+}
+
+@media (max-width: 920px) {
+  .route-fleet-cards {
+    grid-template-columns: repeat(2, minmax(145px, 1fr));
+  }
+}

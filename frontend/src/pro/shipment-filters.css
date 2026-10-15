@@ -1,0 +1,109 @@
+.shipment-filter-panel {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  padding: 20px;
+  background: #fff;
+  border: 1px solid #e1e6f0;
+  border-radius: 12px;
+  margin: 0 0 20px;
+}
+.shipment-filter-panel label {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin: 0;
+  min-width: 0;
+}
+.shipment-filter-panel label > span {
+  font-size: 11px;
+  color: #64738e;
+}
+.shipment-filter-panel .shipment-query {
+  grid-column: 1/-1;
+}
+.shipment-query > div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 12px;
+  border: 1px solid #dce2ee;
+  border-radius: 8px;
+  color: #8d98af;
+}
+.shipment-query input {
+  border: 0;
+  outline: none;
+  background: none;
+  min-width: 0;
+  width: 100%;
+  padding: 12px 0;
+  font-size: 12px;
+  color: #23334d;
+}
+.shipment-query > div:focus-within {
+  outline: 2px solid #a69fe9;
+  outline-offset: 1px;
+}
+.shipment-filter-panel select {
+  width: 100%;
+  min-width: 0;
+  padding: 11px;
+  border: 1px solid #dce2ee;
+  border-radius: 8px;
+  background: white;
+  color: #263752;
+  font-size: 12px;
+}
+.shipment-filter-summary {
+  grid-column: 1/-1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  border-top: 1px solid #eef0f5;
+  padding-top: 12px;
+}
+.shipment-filter-summary > span {
+  font-size: 12px;
+  color: #71809a;
+}
+.shipment-meta small {
+  display: block;
+  color: #8c99ac;
+  font-size: 10px;
+  overflow-wrap: anywhere;
+}
+.shipment-filter-empty {
+  padding: 34px;
+  text-align: center;
+  background: white;
+  border: 1px dashed #dce2ef;
+  border-radius: 12px;
+  color: #7a87a1;
+}
+.shipment-filter-empty h3 {
+  font-size: 15px;
+  color: #4c5c79;
+}
+.shipment-filter-empty p {
+  font-size: 12px;
+}
+@media (max-width: 800px) {
+  .shipment-filter-panel {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 480px) {
+  .shipment-filter-panel {
+    grid-template-columns: 1fr;
+    padding: 15px;
+    gap: 12px;
+  }
+  .shipment-query input {
+    font-size: 12px;
+  }
+  .shipment-filter-summary {
+    flex-wrap: wrap;
+  }
+}

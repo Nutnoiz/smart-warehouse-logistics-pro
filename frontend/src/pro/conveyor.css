@@ -1,0 +1,1098 @@
+/* Live process illustration for Warehouse Pro. Layout and drawings are code-native. */
+.dashboard-view-switch {
+  flex-shrink: 0;
+}
+.conveyor-overview {
+  margin-bottom: 24px;
+  min-width: 0;
+}
+.scene-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 22px 26px;
+  background: #202c45;
+  border: 1px solid #34415c;
+  border-bottom: 0;
+  border-radius: 16px 16px 0 0;
+  color: #edf1fb;
+}
+.scene-kicker {
+  font-size: 9px;
+  letter-spacing: 2px;
+  font-weight: 700;
+  color: #9cacf0;
+}
+.scene-toolbar h3 {
+  font-size: 18px;
+  letter-spacing: -0.3px;
+  margin: 7px 0;
+}
+.scene-toolbar p {
+  font-size: 11px;
+  color: #93a2bf;
+  margin: 0;
+  line-height: 1.8;
+}
+.scene-connection {
+  display: grid;
+  gap: 9px;
+  flex-shrink: 0;
+  justify-items: end;
+}
+.scene-connection > span {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 9px;
+  letter-spacing: 1.4px;
+  color: #8adecb;
+  background: #25433f;
+  border: 1px solid #395956;
+  border-radius: 20px;
+  padding: 7px 10px;
+}
+.scene-connection i {
+  width: 5px;
+  height: 5px;
+  background: #75d3b8;
+  border-radius: 50%;
+  box-shadow: 0 0 7px #75d3b855;
+}
+.scene-connection small {
+  font-size: 9px;
+  color: #8b9ab5;
+}
+.scene-connection.disconnected > span {
+  color: #edb8aa;
+  background: #483736;
+  border-color: #70524b;
+}
+.scene-connection.disconnected i {
+  background: #e8a891;
+}
+.scene-error {
+  padding: 10px;
+  background: #fff2f1;
+  color: #af4c40;
+  font-size: 12px;
+}
+.warehouse-scene {
+  overflow: auto;
+  border: 1px solid #34415c;
+  border-top: 0;
+  border-radius: 0 0 16px 16px;
+  background: #19253c;
+  scrollbar-color: #4b5e7b #1a263d;
+  scrollbar-width: thin;
+}
+.scene-floor {
+  position: relative;
+  min-width: 950px;
+  padding: 24px 25px 17px;
+  background:
+    radial-gradient(ellipse at 52% 25%, #35446430, transparent 75%),
+    linear-gradient(#788bad06 1px, transparent 1px),
+    linear-gradient(90deg, #788bad06 1px, transparent 1px), #19253c;
+  background-size:
+    auto,
+    26px 26px,
+    26px 26px,
+    auto;
+}
+.scene-process {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 28px;
+  position: relative;
+}
+.scene-phase {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  gap: 16px;
+}
+.scene-phase-title {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: #e2e9fb;
+}
+.scene-phase-title > span {
+  font-size: 9px;
+  color: var(--phase-color);
+  background: color-mix(in srgb, var(--phase-color), transparent 88%);
+  border: 1px solid color-mix(in srgb, var(--phase-color), transparent 72%);
+  border-radius: 7px;
+  padding: 7px;
+}
+.scene-phase-title > div {
+  display: grid;
+  gap: 4px;
+}
+.scene-phase-title b {
+  font-size: 12px;
+  font-weight: 600;
+}
+.scene-phase-title div small {
+  font-size: 8px;
+  letter-spacing: 0.8px;
+  color: #8293b1;
+}
+.scene-phase-title > strong {
+  margin-left: auto;
+  font-size: 23px;
+  font-weight: 600;
+  color: var(--phase-color);
+}
+.scene-phase-title strong small {
+  font-size: 8px;
+  color: #8998b5;
+  font-weight: 400;
+  margin-left: 4px;
+}
+.phase-machines {
+  flex: 1;
+  background: linear-gradient(140deg, #29354e70, #22304865);
+  border: 1px solid #3b486370;
+  border-top: 2px solid color-mix(in srgb, var(--phase-color), transparent 25%);
+  border-radius: 11px;
+  padding: 11px;
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  position: relative;
+  box-shadow:
+    inset 0 0 30px #07132515,
+    0 10px 20px #09132615;
+}
+.scene-station {
+  border: 1px solid #47567175;
+  background: #26334b;
+  border-radius: 8px;
+  box-shadow: 0 5px 10px #0b162520;
+  position: relative;
+  overflow: hidden;
+}
+.scene-station.has-cargo {
+  border-color: color-mix(in srgb, var(--station-color), transparent 58%);
+}
+.machine-heading {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 11px 9px;
+  width: 100%;
+  text-align: left;
+  border: 0;
+  background: linear-gradient(110deg, #34425a, #2c3a52);
+  color: #dfe6f6;
+}
+.machine-heading:hover {
+  background: #3a4964;
+}
+.machine-heading > i {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #65758f;
+  flex-shrink: 0;
+}
+.machine-heading > i.busy {
+  background: var(--station-color);
+  box-shadow: 0 0 6px color-mix(in srgb, var(--station-color), transparent 50%);
+}
+.machine-heading > div {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+}
+.machine-heading b {
+  font-size: 9px;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.machine-heading span {
+  font-size: 7px;
+  color: #8a9bb9;
+  letter-spacing: 0.1px;
+}
+.machine-heading > strong {
+  margin-left: auto;
+  font-size: 10px;
+  color: var(--station-color);
+}
+.machine-heading > strong small {
+  font-size: 8px;
+  color: #8595af;
+  font-weight: 400;
+}
+.machine-heading > svg {
+  color: #9babc6;
+  margin-left: 3px;
+  flex-shrink: 0;
+}
+.machine-surface {
+  position: relative;
+  background: linear-gradient(145deg, #17243b, #23334b);
+  padding: 8px 9px 19px;
+  min-height: 91px;
+  border-bottom: 1px solid #65779150;
+}
+.machine-cargo {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  gap: 5px;
+  max-height: 175px;
+  overflow: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #4a6080 transparent;
+}
+.scene-cargo {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  text-decoration: none;
+  color: #dce6f7;
+  background: #ffffff04;
+  border: 1px solid #ffffff08;
+  border-radius: 6px;
+  padding: 2px 5px 2px 0;
+  transition:
+    background 0.15s,
+    border-color 0.15s;
+}
+.scene-cargo:hover {
+  background: #ffffff0b;
+  border-color: var(--station-color);
+}
+.cargo-illustration {
+  width: 47px;
+  height: 43px;
+  flex-shrink: 0;
+  filter: drop-shadow(1px 3px 2px #020a1722);
+}
+.scene-cargo > div {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+}
+.scene-cargo b {
+  font-size: 8px;
+  letter-spacing: 0.2px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.scene-cargo span {
+  font-size: 8px;
+  color: var(--station-color);
+}
+.scene-cargo small {
+  font-size: 7px;
+  color: #8296b5;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.machine-rollers {
+  position: absolute;
+  left: 5px;
+  right: 5px;
+  bottom: 6px;
+  height: 7px;
+  display: flex;
+  gap: 3px;
+  background: #0c1930;
+  border: 1px solid #60739350;
+  padding: 1px;
+  transform: skewX(-15deg);
+}
+.machine-rollers i {
+  flex: 1;
+  background: linear-gradient(90deg, #4c5d78, #72819b 40%, #3e4c64);
+  border-radius: 1px;
+}
+.scene-station > footer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 9px;
+  background: #29374e;
+}
+.scene-station > footer > span {
+  font-size: 7px;
+  color: #8fa0be;
+  white-space: nowrap;
+}
+.scene-station > footer > div {
+  height: 3px;
+  flex: 1;
+  border-radius: 3px;
+  background: #1a2940;
+  overflow: hidden;
+}
+.scene-station > footer i {
+  display: block;
+  height: 100%;
+  background: var(--station-color);
+}
+.scene-station-empty {
+  min-height: 61px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  font-size: 9px;
+  color: #677d9d;
+}
+.scene-station-empty svg {
+  opacity: 0.5;
+}
+.scene-storage {
+  display: grid;
+  gap: 8px;
+}
+.scene-zone {
+  display: flex;
+  align-items: center;
+  position: relative;
+  min-height: 73px;
+  padding: 3px 5px;
+  background: #ffffff03;
+  border: 1px solid #50608340;
+  border-radius: 7px;
+  text-decoration: none;
+  color: #c8d4eb;
+}
+.scene-zone:hover {
+  background: #ffffff09;
+  border-color: #8a85c2;
+}
+.rack-illustration {
+  width: 75px;
+  height: 63px;
+  flex-shrink: 0;
+  margin-left: -3px;
+}
+.scene-zone > div {
+  display: grid;
+  gap: 5px;
+  min-width: 0;
+}
+.scene-zone b {
+  font-size: 11px;
+  color: #bbacf4;
+  letter-spacing: 1px;
+}
+.scene-zone span {
+  font-size: 7px;
+  color: #93a2c0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 110px;
+}
+.scene-zone small {
+  font-size: 7px;
+  color: #7f90ad;
+}
+.scene-zone > strong {
+  position: absolute;
+  top: 9px;
+  right: 7px;
+  font-size: 7px;
+  color: #a294d5;
+}
+.scene-phase-action {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 3px;
+  text-decoration: none;
+  font-size: 9px;
+  color: #96a7c6;
+}
+.scene-phase-action:hover {
+  color: var(--phase-color);
+}
+.phase-conveyor {
+  position: absolute;
+  right: -27px;
+  top: 192px;
+  width: 27px;
+  height: 34px;
+  z-index: 3;
+  background: linear-gradient(#9aa8c066 1px, transparent 1px), #31415b;
+  border: 1px solid #63748d;
+  border-left: 0;
+  border-right: 0;
+  box-shadow:
+    0 6px 0 #101e35,
+    0 9px 10px #050c1840;
+  transform: skewY(-9deg);
+}
+.phase-conveyor > div {
+  position: absolute;
+  inset: 4px 0;
+  background: repeating-linear-gradient(90deg, #6a7a94 0 2px, #36455e 2px 6px);
+  animation: conveyor-track 1.7s linear infinite;
+  opacity: 0.65;
+}
+.phase-conveyor > svg {
+  position: absolute;
+  inset: 9px 6px;
+  color: #a3b4cb;
+  z-index: 2;
+}
+.phase-conveyor > i {
+  position: absolute;
+  bottom: -11px;
+  width: 3px;
+  height: 8px;
+  background: #49607d;
+}
+.phase-conveyor > i:last-child {
+  right: 4px;
+}
+.scene-floor-caption {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 18px;
+  padding-top: 13px;
+  border-top: 1px solid #3c4e683e;
+  font-size: 8px;
+  color: #7086a7;
+}
+.scene-floor-caption > span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.scene-floor-caption i {
+  width: 4px;
+  height: 4px;
+  background: #85a6bc;
+  border-radius: 50%;
+}
+.scene-handoff {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin: 20px 0;
+  color: #99a5b7;
+}
+.scene-handoff > span {
+  height: 1px;
+  flex: 1;
+  background: #dde3ec;
+}
+.scene-handoff > div {
+  font-size: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.scene-logistics {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  align-items: start;
+}
+.scene-fleet {
+  min-width: 0;
+  padding: 22px;
+  background: #fff;
+  border: 1px solid #e2e7ef;
+  border-radius: 14px;
+  box-shadow: 0 2px 5px #23385903;
+}
+.fleet-area-heading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.fleet-area-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: #f0effd;
+  color: #8980d4;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+.delivery-fleet .fleet-area-icon {
+  background: #eaf6f4;
+  color: #5c9e99;
+}
+.fleet-area-heading > div:nth-child(2) {
+  min-width: 0;
+}
+.fleet-area-heading span {
+  font-size: 8px;
+  letter-spacing: 1.5px;
+  color: #a4acc0;
+}
+.fleet-area-heading h3 {
+  font-size: 14px;
+  margin: 6px 0;
+}
+.fleet-area-heading p {
+  font-size: 9px;
+  color: #a3aec1;
+  margin: 0;
+  line-height: 1.7;
+}
+.fleet-area-heading > strong {
+  margin-left: auto;
+  font-size: 28px;
+  font-weight: 600;
+  color: #8a80ce;
+  display: grid;
+  text-align: center;
+}
+.delivery-fleet .fleet-area-heading > strong {
+  color: #679e9a;
+}
+.fleet-area-heading strong small {
+  font-size: 8px;
+  color: #b0b8c8;
+  font-weight: 400;
+  margin-top: 3px;
+}
+.scene-fleet-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 12px;
+  align-items: start;
+}
+.scene-truck {
+  display: block;
+  border: 1px solid #e2e7f0;
+  border-radius: 11px;
+  text-decoration: none;
+  color: #314259;
+  overflow: hidden;
+  background: #fbfcff;
+  transition:
+    border-color 0.15s,
+    box-shadow 0.15s;
+}
+.scene-truck:hover {
+  border-color: #aaa2e2;
+  box-shadow: 0 7px 18px #3846750c;
+}
+.scene-truck.on-road:hover {
+  border-color: #7eb7af;
+}
+.truck-card-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 13px 12px 9px;
+  gap: 6px;
+}
+.truck-card-heading > div {
+  display: grid;
+  gap: 4px;
+}
+.truck-card-heading b {
+  font-size: 11px;
+  letter-spacing: 0.4px;
+}
+.truck-card-heading div span {
+  font-size: 8px;
+  color: #9ba9bd;
+}
+.truck-state {
+  background: #f0eefb;
+  color: #8a81c0;
+  border: 1px solid #e7e3f7;
+  padding: 5px 6px;
+  border-radius: 5px;
+  font-size: 7px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  white-space: nowrap;
+}
+.truck-state i {
+  height: 3px;
+  width: 3px;
+  border-radius: 50%;
+  background: currentColor;
+}
+.on-road .truck-state {
+  background: #eaf5f2;
+  color: #6b9d94;
+  border-color: #dcece6;
+}
+.truck-portrait {
+  position: relative;
+  margin: 0 10px;
+  background: radial-gradient(ellipse at 50% 70%, #e4e9f9, #f4f6fc 75%);
+  border: 1px solid #e8ecf6;
+  border-radius: 7px;
+  overflow: hidden;
+  height: 105px;
+  display: grid;
+  place-items: center;
+}
+.on-road .truck-portrait {
+  background: radial-gradient(ellipse at 50% 70%, #d8eeeb, #f0f8f5 75%);
+  border-color: #e1eee8;
+}
+.truck-road {
+  position: absolute;
+  height: 18px;
+  bottom: 11px;
+  left: -10px;
+  right: -10px;
+  background: linear-gradient(0deg, #cbd4e2, #dce3ee);
+  transform: skewY(-3deg);
+  opacity: 0.5;
+}
+.truck-road:after {
+  content: "";
+  position: absolute;
+  inset: 8px 0 auto;
+  height: 1px;
+  background: repeating-linear-gradient(
+    90deg,
+    #fff 0 14px,
+    transparent 14px 26px
+  );
+}
+.truck-illustration {
+  position: relative;
+  width: 95%;
+  height: 99px;
+  z-index: 1;
+}
+.truck-portrait > span {
+  position: absolute;
+  top: 6px;
+  right: 7px;
+  font-size: 7px;
+  color: #7a90a9;
+  z-index: 2;
+  background: #ffffff90;
+  border-radius: 4px;
+  padding: 4px 5px;
+}
+.truck-card-details {
+  padding: 12px;
+  display: grid;
+  gap: 7px;
+}
+.truck-card-details > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 7px;
+  font-size: 8px;
+}
+.truck-card-details span {
+  color: #a9b4c5;
+  white-space: nowrap;
+}
+.truck-card-details b {
+  font-weight: 500;
+  color: #8796af;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.truck-manifest-preview {
+  padding: 0 12px 12px;
+  display: grid;
+  gap: 4px;
+}
+.truck-manifest-preview > span {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: #f0f3f9;
+  border-radius: 4px;
+  padding: 6px;
+  color: #8b9db8;
+  min-width: 0;
+}
+.truck-manifest-preview b {
+  font-size: 8px;
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex: 1;
+}
+.truck-manifest-preview small {
+  font-size: 7px;
+  white-space: nowrap;
+}
+.scene-truck > footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 11px 12px;
+  border-top: 1px solid #e8ecf4;
+  background: #f5f7fc;
+  gap: 8px;
+}
+.scene-truck > footer b {
+  font-size: 8px;
+  color: #8b97af;
+  font-weight: 500;
+}
+.scene-truck > footer > span {
+  font-size: 8px;
+  color: #8a80c9;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.on-road > footer > span {
+  color: #659c94;
+}
+.fleet-area-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 17px;
+  padding-top: 15px;
+  border-top: 1px solid #edf0f6;
+  font-size: 10px;
+  color: #909aaf;
+  text-decoration: none;
+}
+.fleet-area-link:hover {
+  color: #625cca;
+}
+.scene-fleet-empty {
+  grid-column: 1/-1;
+  border: 1px dashed #e4e9f2;
+  border-radius: 9px;
+  min-height: 190px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+  color: #b3bfd1;
+  background: #fcfdff;
+}
+.scene-fleet-empty b {
+  font-size: 12px;
+  color: #93a1b6;
+  font-weight: 500;
+}
+.scene-fleet-empty span {
+  font-size: 10px;
+  color: #b0bacb;
+}
+.scene-return-area {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  border: 1px solid #e9e0d8;
+  border-radius: 12px;
+  background: #fdfaf6;
+  padding: 18px 22px;
+  margin-top: 18px;
+}
+.scene-return-area > div:first-child {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  color: #bca27e;
+  flex-shrink: 0;
+}
+.scene-return-area > div > span {
+  display: grid;
+  gap: 5px;
+}
+.scene-return-area b {
+  font-size: 11px;
+  color: #937d62;
+  font-weight: 500;
+}
+.scene-return-area small {
+  font-size: 9px;
+  color: #bfae99;
+}
+.scene-return-area > div:last-child {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  flex-wrap: wrap;
+}
+.scene-return-area a {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  background: white;
+  border: 1px solid #eee5dc;
+  border-radius: 7px;
+  padding: 10px 13px;
+  text-decoration: none;
+  color: #b6a086;
+}
+.scene-return-area a > span {
+  display: grid;
+  gap: 4px;
+}
+.scene-return-area a b {
+  font-size: 9px;
+}
+.scene-return-area a small {
+  font-size: 8px;
+}
+.scene-return-area .return-clear {
+  font-size: 10px;
+  color: #bcac98;
+}
+@keyframes conveyor-track {
+  to {
+    background-position: 12px 0;
+  }
+}
+@media (min-width: 1600px) {
+  .scene-floor {
+    padding: 30px;
+  }
+  .scene-process {
+    gap: 34px;
+  }
+  .phase-conveyor {
+    right: -33px;
+    width: 33px;
+  }
+  .scene-station .machine-heading b {
+    font-size: 11px;
+  }
+  .scene-cargo b {
+    font-size: 10px;
+  }
+  .scene-cargo span {
+    font-size: 9px;
+  }
+  .scene-cargo small {
+    font-size: 8px;
+  }
+  .rack-illustration {
+    width: 90px;
+  }
+  .scene-zone span {
+    font-size: 9px;
+  }
+  .scene-zone small {
+    font-size: 8px;
+  }
+  .scene-fleet-cards {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
+}
+@media (max-width: 1200px) {
+  .scene-logistics {
+    grid-template-columns: 1fr;
+  }
+  .scene-fleet-cards {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+}
+@media (max-width: 600px) {
+  .section-heading {
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+  .dashboard-view-switch {
+    width: 100%;
+  }
+  .dashboard-view-switch > button {
+    flex: 1;
+  }
+  .scene-toolbar {
+    padding: 20px;
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+  .scene-toolbar h3 {
+    font-size: 16px;
+  }
+  .scene-toolbar p {
+    font-size: 10px;
+  }
+  .scene-connection {
+    justify-items: start;
+  }
+  .scene-connection small {
+    font-size: 8px;
+  }
+  .scene-floor {
+    min-width: 950px;
+  }
+  .scene-handoff {
+    gap: 8px;
+  }
+  .scene-handoff > div {
+    font-size: 9px;
+    gap: 4px;
+  }
+  .scene-logistics {
+    gap: 15px;
+  }
+  .scene-fleet {
+    padding: 16px;
+  }
+  .fleet-area-heading {
+    gap: 9px;
+  }
+  .fleet-area-heading h3 {
+    font-size: 13px;
+  }
+  .fleet-area-heading p {
+    font-size: 8px;
+  }
+  .fleet-area-icon {
+    width: 37px;
+    height: 37px;
+  }
+  .scene-fleet-cards {
+    grid-template-columns: 1fr;
+  }
+  .truck-portrait {
+    height: 125px;
+  }
+  .truck-illustration {
+    height: 120px;
+    width: 85%;
+  }
+  .truck-card-heading b {
+    font-size: 13px;
+  }
+  .truck-state {
+    font-size: 9px;
+  }
+  .truck-card-details > div {
+    font-size: 10px;
+  }
+  .truck-manifest-preview b {
+    font-size: 10px;
+  }
+  .truck-manifest-preview small {
+    font-size: 9px;
+  }
+  .scene-truck > footer b,
+  .scene-truck > footer > span {
+    font-size: 10px;
+  }
+  .scene-return-area {
+    padding: 17px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+  .scene-return-area > div:last-child {
+    width: 100%;
+  }
+  .scene-return-area a {
+    width: 100%;
+  }
+  .scene-return-area a > svg:last-child {
+    margin-left: auto;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .phase-conveyor > div {
+    animation: none;
+  }
+}
+
+/* Explicit section sizing prevents legacy page margins from shrinking the fleet lanes. */
+.scene-fleet {
+  width: 100%;
+  margin: 0;
+  align-self: start;
+}
+.machine-heading b {
+  font-size: 10px;
+}
+.machine-heading span {
+  font-size: 8px;
+  color: #a6b6d1;
+}
+.scene-cargo b {
+  font-size: 10px;
+}
+.scene-cargo span {
+  font-size: 9px;
+}
+.scene-cargo small {
+  font-size: 8px;
+  color: #9aacc7;
+}
+.scene-zone span {
+  font-size: 9px;
+}
+.scene-zone small {
+  font-size: 8px;
+  color: #a2afc7;
+}
+.scene-zone > strong {
+  font-size: 8px;
+}
+.truck-card-heading b {
+  font-size: 12px;
+}
+.truck-card-heading div span {
+  font-size: 9px;
+}
+.truck-state {
+  font-size: 8px;
+}
+.truck-card-details > div {
+  font-size: 10px;
+}
+.truck-manifest-preview b {
+  font-size: 10px;
+}
+.truck-manifest-preview small {
+  font-size: 9px;
+}
+.scene-truck > footer b,
+.scene-truck > footer > span {
+  font-size: 9px;
+}
+.fleet-area-heading h3 {
+  font-size: 16px;
+}
+.fleet-area-heading p {
+  font-size: 10px;
+}
+.scene-return-area a b {
+  font-size: 10px;
+}
+.scene-return-area a small {
+  font-size: 9px;
+}
+@media (max-width: 600px) {
+  .warehouse-scene:before {
+    content: "เลื่อนแผนผังแนวนอนเพื่อดูทุกสถานี →";
+    display: block;
+    position: sticky;
+    left: 0;
+    padding: 12px 20px;
+    font-size: 10px;
+    color: #a5b7d3;
+    background: #1b2942;
+    border-bottom: 1px solid #3c4e683e;
+  }
+}

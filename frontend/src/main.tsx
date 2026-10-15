@@ -1,0 +1,16 @@
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import {BrowserRouter} from 'react-router-dom'
+import App from './ProApp'
+import './styles.css'
+import './digital-twin.css'
+import './outbound-pick.css'
+import './shipment-trip.css'
+import './vehicle-load.css'
+import './return-putaway.css'
+import './driver-ops.css'
+import './ops-audit.css'
+import './delivery-runs.css'
+import './pro.css'
+ReactDOM.createRoot(document.getElementById('root')!).render(<React.StrictMode><BrowserRouter><App/></BrowserRouter></React.StrictMode>)
+if('serviceWorker' in navigator&&import.meta.env.PROD)window.addEventListener('load',()=>navigator.serviceWorker.register('/sw.js'))

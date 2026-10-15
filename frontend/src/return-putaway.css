@@ -1,0 +1,121 @@
+.return-putaway-layout {
+  align-items: start;
+}
+
+.return-product-card {
+  border-top: 4px solid #d86d67;
+}
+
+.return-product-title {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 13px 0 20px;
+}
+
+.return-product-title > svg {
+  border-radius: 8px;
+  padding: 9px;
+  box-sizing: content-box;
+  background: #fae9e7;
+  color: #b44d48;
+}
+
+.return-product-title h3 {
+  margin: 0 0 7px;
+  font: 700 17px Manrope;
+}
+
+.return-product-card dl {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  margin: 0;
+  border-top: 1px solid var(--line);
+}
+
+.return-product-card dt,
+.return-product-card dd {
+  margin: 0;
+  padding: 11px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 10px;
+}
+
+.return-product-card dt {
+  color: var(--muted);
+}
+
+.return-product-card dd small {
+  display: block;
+  margin-top: 3px;
+  color: var(--muted);
+  font-size: 8px;
+}
+
+.return-storage-note {
+  display: grid;
+  gap: 4px;
+  margin-bottom: 14px;
+  border: 1px solid #e6c9a3;
+  border-radius: 7px;
+  padding: 11px 13px;
+  background: #fff8ec;
+}
+
+.return-storage-note b {
+  color: #92601d;
+  font: 700 10px Manrope;
+}
+
+.return-storage-note span {
+  color: #806c50;
+  font-size: 9px;
+  line-height: 1.6;
+}
+
+.return-zone-choice {
+  margin-bottom: 10px;
+}
+
+.return-zone-choice span {
+  display: inline-block;
+  border-radius: 15px;
+  padding: 5px 9px;
+  font: 700 8px Manrope;
+}
+
+.return-zone-choice .recommended {
+  background: #f9dfdd;
+  color: #a1433e;
+}
+
+.return-zone-choice .normal {
+  background: #ddf4eb;
+  color: #087359;
+}
+
+.selected-return-location {
+  display: grid;
+  gap: 4px;
+  margin: 13px 0;
+  border-left: 4px solid #d86d67;
+  border-radius: 5px;
+  padding: 11px 13px;
+  background: #f8faf9;
+}
+
+.selected-return-location span,
+.selected-return-location small {
+  color: var(--muted);
+  font-size: 8px;
+}
+
+.selected-return-location b {
+  font: 700 11px Manrope;
+}
+
+@media (max-width: 560px) {
+  .return-product-card dl {
+    grid-template-columns: 90px 1fr;
+  }
+}

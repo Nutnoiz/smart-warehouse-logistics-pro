@@ -1,0 +1,14 @@
+.driver-page { max-width: 820px; }
+.driver-run { overflow:hidden; margin-bottom:14px; border:1px solid var(--line); border-radius:12px; background:white; }
+.driver-run-head { display:grid; grid-template-columns:auto 1fr auto; align-items:center; gap:13px; padding:18px; background:linear-gradient(125deg,#102d25,#1c4b3e); color:white; text-decoration:none; }
+.driver-run-head > span { display:grid; place-items:center; width:48px; height:48px; border:1px solid #ffffff2b; border-radius:9px; background:#ffffff0d; }
+.driver-run-head small { color:#8fbbb0; font:700 8px Manrope; }
+.driver-run-head h3 { margin:3px 0; font:700 16px Manrope; }
+.driver-run-head p { margin:0; color:#c4d9d3; font-size:9px; }
+.driver-stops { padding:8px 14px; }
+.driver-stops > a { display:grid; grid-template-columns:30px 1fr auto; align-items:center; gap:10px; padding:12px 5px; border-bottom:1px solid var(--line); color:var(--ink); text-decoration:none; }
+.driver-stops > a:last-child { border-bottom:0; }
+.driver-stops > a > b { display:grid; place-items:center; width:25px; height:25px; border-radius:50%; background:#ddf4eb; color:var(--teal); font:700 10px Manrope; }
+.driver-stops div { display:grid; gap:2px; }
+.driver-stops strong { font:700 11px Manrope; }
+.driver-stops span,.driver-stops small { color:var(--muted); font-size:8px; }
